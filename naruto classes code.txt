@@ -1,0 +1,1927 @@
+
+
+Sub naruto_classes(ByVal level As Integer, ByRef ba As Integer, ByRef b_att() As Integer, ByRef will_save As Integer, ByRef will() As Integer, ByRef ref_save As Integer, ByRef ref() As Integer, ByRef fort_save As Integer, ByRef fort() As Integer, ByRef hp As Integer, ByVal con_mod As Integer, ByVal skill_pts As Integer, ByVal int_mod As Integer)
+
+Dim counter(3) As Integer
+Dim Class(35) As Integer 'finds out the levels in each class
+Dim lvl As Integer 'individual level in class
+Dim ttl_lvl As Integer 'total levels used
+Dim cls As String
+Dim chosen(35) As String
+Dim selected As Integer
+Dim select_cls As String
+Dim increment As Integer
+
+txtclasses = "Basic" & vbCrLf & vbCrLf & "Strong" & vbCrLf & "Fast" & vbCrLf & "Tough" & vbCrLf & "Smart" & vbCrLf & "Dedicated" & vbCrLf & "Charismatic"
+
+txtprestclasses = txtprestclasses & "Prestige" & vbCrLf & vbCrLf & "Beast Lord" & vbCrLf & "" & vbCrLf
+
+txtprestclasses = txtprestclasses & vbCrLf & "Beast Master" & vbCrLf & "" & vbCrLf
+
+txtprestclasses = txtprestclasses & vbCrLf & "Blink Strike" & vbCrLf & "" & vbCrLf
+
+txtprestclasses = txtprestclasses & vbCrLf & "Devastator" & vbCrLf & "" & vbCrLf
+
+txtprestclasses = txtprestclasses & vbCrLf & "Elementalist" & vbCrLf & "" & vbCrLf
+
+txtprestclasses = txtprestclasses & vbCrLf & "Exarch" & vbCrLf & "" & vbCrLf
+
+txtprestclasses = txtprestclasses & vbCrLf & "Exemplar" & vbCrLf & "" & vbCrLf
+
+txtprestclasses = txtprestclasses & vbCrLf & "Genjutsu Master" & vbCrLf & "" & vbCrLf
+
+txtprestclasses = txtprestclasses & vbCrLf & "Livewire" & vbCrLf & "" & vbCrLf
+
+txtprestclasses = txtprestclasses & vbCrLf & "Master Strategist" & vbCrLf & "" & vbCrLf
+
+txtprestclasses = txtprestclasses & vbCrLf & "Medical Specialist" & vbCrLf & "" & vbCrLf
+
+txtprestclasses = txtprestclasses & vbCrLf & "Ninja Operations Counter" & vbCrLf & "" & vbCrLf
+
+txtprestclasses = txtprestclasses & vbCrLf & "Ninja Police" & vbCrLf & "" & vbCrLf
+
+txtprestclasses = txtprestclasses & vbCrLf & "Ninja Scout" & vbCrLf & "" & vbCrLf
+
+txtprestclasses = txtprestclasses & vbCrLf & "Puppeteer" & vbCrLf & "" & vbCrLf
+
+txtprestclasses = txtprestclasses & vbCrLf & "Sacred Fist" & vbCrLf & "" & vbCrLf
+
+txtprestclasses = txtprestclasses & vbCrLf & "Samurai" & vbCrLf & "" & vbCrLf
+
+txtprestclasses = txtprestclasses & vbCrLf & "Shade" & vbCrLf & "" & vbCrLf
+
+txtprestclasses = txtprestclasses & vbCrLf & "Shinobi Adept" & vbCrLf & "" & vbCrLf
+
+txtprestclasses = txtprestclasses & vbCrLf & "Shinobi Bodyguard" & vbCrLf & "" & vbCrLf
+
+txtprestclasses = txtprestclasses & vbCrLf & "Shinobi Swordsman" & vbCrLf & "" & vbCrLf
+
+txtprestclasses = txtprestclasses & vbCrLf & "Shuriken Expert" & vbCrLf & "" & vbCrLf
+
+txtprestclasses = txtprestclasses & vbCrLf & "Soul Edge" & vbCrLf & "" & vbCrLf
+
+txtprestclasses = txtprestclasses & vbCrLf & "Squad Captain" & vbCrLf & "" & vbCrLf
+
+txtprestclasses = txtprestclasses & vbCrLf & "Summoner" & vbCrLf & "" & vbCrLf
+
+txtprestclasses = txtprestclasses & vbCrLf & "Sword Savant" & vbCrLf & "" & vbCrLf
+
+txtprestclasses = txtprestclasses & vbCrLf & "Taijutsu Master" & vbCrLf & "" & vbCrLf
+
+txtprestclasses = txtprestclasses & vbCrLf & "Technique Analyst" & vbCrLf & "" & vbCrLf
+
+txtprestclasses = txtprestclasses & vbCrLf & "Weapon Master" & vbCrLf & "" & vbCrLf
+
+
+ttl_lvl = 0
+
+counter(2) = 1
+counter(3) = 1
+
+
+Do
+For counter(1) = 1 To level
+If ttl_lvl < level Then
+
+
+
+
+Do
+cls = InputBox("select the class that you wish to take. Initial letter must be uppercase, i.e. Barbarian, Bard, Assassin")
+Loop Until cls = "Strong" Or cls = "Fast" Or cls = "Tough" Or cls = "Smart" Or cls = "Dedicated" Or cls = "Charismatic" Or cls = "Beast Lord" Or cls = "Beast Master" Or cls = "Blink Strike" Or cls = "Devastator" Or cls = "Elementalist" Or cls = "Exarch" Or cls = "Exemplar" Or cls = "Genjutsu Master" Or cls = "Livewire" Or cls = "Master Strategist" Or cls = "Medical Specialist" Or cls = "Ninja Operations Counter" Or cls = "Ninja Police" Or cls = "Ninja Scout" Or cls = "Puppeteer" Or cls = "Sacred Fist" Or cls = "Samurai" Or cls = "Shade" Or cls = "Shinobi Adept" Or cls = "Shinobi Bodyguard" Or cls = "Shinobi Swordsman" Or cls = "Shuriken Expert" Or cls = "Soul Edge" Or cls = "Squad Captain" Or cls = "Summoner" Or cls = "Sword Savant" Or cls = "Taijutsu Master" Or cls = "Technique Analyst" Or cls = "Weapon Master"
+
+chosen(counter(2)) = cls
+
+
+Do
+lvl = InputBox("select how many levels you wish to take in that class")
+
+
+If cls = "Strong" Or cls = "Fast" Or cls = "Tough" Or cls = "Smart" Or cls = "Dedicated" Or cls = "Charismatic"  Or cls = "Beast Master"  Or cls = "Medical Specialist"  Or cls = "Ninja Police" Or cls = "Ninja Scout" Or cls = "Puppeteer" Or cls = "Sacred Fist" Or cls = "Samurai"  Or cls = "Shinobi Bodyguard" Or cls = "Shinobi Swordsman" Or cls = "Shuriken Expert" Or cls = "Soul Edge" Or cls = "Squad Captain"  Or cls = "Taijutsu Master"
+
+Do
+
+If lvl > 10 Then
+lvl = InputBox("max of 10 levels in class you wish to take in that class")
+End If
+Loop Until lvl <= 10
+End If
+
+
+If cls = "Elementalist"  Or cls = "Genjutsu Master" Or cls = "Master Strategist" Or cls = "Summoner" Or cls = "Sword Savant"
+
+Do
+
+If lvl > 7 Then
+lvl = InputBox("max of 7 levels in class you wish to take in that class")
+End If
+Loop Until lvl <= 7
+End If
+
+
+If  cls = "Blink Strike" Or cls = "Devastator"  Or cls = "Exarch" Or cls = "Exemplar" Or cls = "Ninja Operations Counter" or cls = "Shade"  Or cls = "Technique Analyst" Or cls = "Weapon Master"
+
+Do
+
+If lvl > 5 Then
+lvl = InputBox("max of 5 levels in class you wish to take in that class")
+End If
+Loop Until lvl <= 5
+End If
+
+
+If cls = "Beast Lord"  Or cls = "Livewire" Or cls = "Shinobi Adept"
+
+Do
+
+If lvl > 3 Then
+lvl = InputBox("max of 3 levels in class you wish to take in that class")
+End If
+Loop Until lvl <=3
+End If
+
+Loop Until lvl <= level
+
+
+ttl_lvl = ttl_lvl + lvl
+
+
+
+Select Case cls 'finds out how many levels are in each class
+Case Is = "Strong"
+Class(1) = Class(1) + lvl
+
+Case Is = "Fast"
+Class(2) = Class(2) + lvl
+
+Case Is = "Tough"
+Class(3) = Class(3) + lvl
+
+Case Is = "Smart"
+Class(4) = Class(4) + lvl
+
+Case Is = "Dedicated"
+Class(5) = Class(5) + lvl
+
+Case Is = "Charismatic"
+Class(6) = Class(6) + lvl
+
+Case Is = "Beast Lord"
+Class(7) = Class(7) + lvl
+
+Case Is = "Beast Master"
+Class(8) = Class(8) + lvl
+
+Case Is = "Blink Strike"
+Class(9) = Class(9) + lvl
+
+Case Is = "Devastator"
+Class(10) = Class(10) + lvl
+
+Case Is = "Elementalist"
+Class(11) = Class(11) + lvl
+
+Case Is = "Exarch"
+Class(12) = Class(12) + lvl
+
+Case Is = "Exemplar"
+Class(13) = Class(13) + lvl
+
+Case Is = "Genjutsu Master"
+Class(14) = Class(14) + lvl
+
+Case Is = "Livewire"
+Class(15) = Class(15) + lvl
+
+Case Is = "Master Strategist"
+Class(16) = Class(16) + lvl
+
+Case Is = "Medical Specialist"
+Class(17) = Class(17) + lvl
+
+Case Is = "ninja operations Counter"
+Class(18) = Class(18) + lvl
+
+Case Is = "Ninja Police"
+Class(19) = Class(19) + lvl
+
+Case Is = "Ninja Scout"
+Class(20) = Class(20) + lvl
+
+Case Is = "Puppeteer"
+Class(21) = Class(21) + lvl
+
+Case Is = "Sacred Fist"
+Class(22) = Class(22) + lvl
+
+Case Is = "Samurai"
+Class(23) = Class(23) + lvl
+
+Case Is = "Shade"
+Class(24) = Class(24) + lvl
+
+Case Is = "Shinobi Adept"
+Class(25) = Class(25) + lvl
+
+Case Is = "Shinobi Bodyguard"
+Class(26) = Class(26) + lvl
+
+Case Is = "Shinobi Swordsman"
+Class(27) = Class(27) + lvl
+
+Case Is = "Shuriken Expert"
+Class(28) = Class(28) + lvl
+
+Case Is = "Soul Edge"
+Class(29) = Class(29) + lvl
+
+Case Is = "Squad Captain"
+Class(30) = Class(30) + lvl
+
+Case Is = "Summoner"
+Class(31) = Class(31) + lvl
+
+Case Is = "Sword Savant"
+Class(32) = Class(32) + lvl
+
+Case Is = "Taijutsu Master"
+Class(33) = Class(33) + lvl
+
+Case Is = "Technique Analyst"
+Class(34) = Class(34) + lvl
+
+Case Is = "Weapon Master"
+Class(35) = Class(35) + lvl
+
+End Select
+
+
+counter(2) = counter(2) + 1
+
+End If
+
+Next counter(1)
+
+Loop Until ttl_lvl = level
+
+
+increment = 1
+
+Do 'makes sure that no duplicates appear in chosen class
+
+select_cls = chosen(increment)
+
+For increment = 1 To counter(2)
+selected = increment + 1
+If select_cls = chosen(selected) Then
+chosen(selected) = "x"
+End If
+Next increment
+
+'
+spec_loop = Class(x)
+Do 'loop will lower by one each time, until it reaches zero, in order to minimise code.
+
+Select Case spec_loop
+Case Is = 10
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 9
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 8
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 7
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 6
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 5
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 4
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 3
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 2
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 1
+txtspecial = txtspecial & "" & vbCrLf
+End Select
+
+spec_loop = spec_loop - 1
+Loop Until spec_loop = 0
+
+
+Select Case select_cls
+
+Case Is = "Strong"
+ba = ba + b_att(1, Class(1))
+will_save = will_save + will(3, Class(1))
+ref_save = ref_save + ref(3, Class(1))
+fort_save = fort_save + fort(2, Class(1))
+hp = hp + (8 + con_mod) * Class(1)
+skill_pts = skill_pts + (2 + int_mod) * Class(1)
+
+spec_loop = Class(1)
+Do 'loop will lower by one each time, until it reaches zero, in order to minimise code.
+
+Select Case spec_loop
+Case Is = 10
+txtspecial = txtspecial & "Bonus Feat" & vbCrLf
+Case Is = 9
+txtspecial = txtspecial & "Talent" & vbCrLf
+ac = ac + 1
+Case Is = 8
+txtspecial = txtspecial & "Bonus Feat" & vbCrLf
+Case Is = 7
+txtspecial = txtspecial & "Talent" & vbCrLf
+ac = ac + 1
+Case Is = 6
+txtspecial = txtspecial & "Bonus Feat" & vbCrLf
+Case Is = 5
+txtspecial = txtspecial & "Talent" & vbCrLf
+Case Is = 4
+txtspecial = txtspecial & "Bonus Feat" & vbCrLf
+ac = ac + 1
+Case Is = 3
+txtspecial = txtspecial & "Talent" & vbCrLf
+Case Is = 2
+txtspecial = txtspecial & "Bonus Feat" & vbCrLf
+ac = ac = 1
+Case Is = 1
+txtspecial = txtspecial & "Talent" & vbCrLf
+ac = ac + 1
+End Select
+
+spec_loop = spec_loop - 1
+Loop Until spec_loop = 0
+
+Case Is = "Fast"
+ba = ba + b_att(2, Class(2))
+will_save = will_save + will(3, Class(2))
+ref_save = ref_save + ref(2, Class(2))
+fort_save = fort_save + fort(3, Class(2))
+hp = hp + (8 + con_mod) * Class(2)
+skill_pts = skill_pts + (4 + int_mod) * Class(2)
+
+spec_loop = Class(2)
+Do 'loop will lower by one each time, until it reaches zero, in order to minimise code.
+
+Select Case spec_loop
+Case Is = 10
+txtspecial = txtspecial & "Bonus Feat" & vbCrLf
+ac = ac + 1
+Case Is = 9
+txtspecial = txtspecial & "Talent" & vbCrLf
+Case Is = 8
+txtspecial = txtspecial & "Bonus Feat" & vbCrLf
+ac = ac + 1
+Case Is = 7
+txtspecial = txtspecial & "Talent" & vbCrLf
+Case Is = 6
+txtspecial = txtspecial & "Bonus Feat" & vbCrLf
+ac = ac + 1
+Case Is = 5
+txtspecial = txtspecial & "Talent" & vbCrLf
+Case Is = 4
+txtspecial = txtspecial & "Bonus Feat" & vbCrLf
+ac = ac + 1
+Case Is = 3
+txtspecial = txtspecial & "Talent" & vbCrLf
+Case Is = 2
+txtspecial = txtspecial & "Bonus Feat" & vbCrLf
+ac = ac + 1
+Case Is = 1
+txtspecial = txtspecial & "Talent" & vbCrLf
+ac = ac + 3
+End Select
+
+spec_loop = spec_loop - 1
+Loop Until spec_loop = 0
+
+Case Is = "Tough"
+ba = ba + b_att(2, Class(3))
+will_save = will_save + will(3, Class(3))
+ref_save = ref_save + ref(3, Class(3))
+fort_save = fort_save + fort(2, Class(3))
+hp = hp + (10 + con_mod) * Class(3)
+skill_pts = skill_pts + (2 + int_mod) * Class(3)
+
+spec_loop = Class(3)
+Do 'loop will lower by one each time, until it reaches zero, in order to minimise code.
+
+Select Case spec_loop
+Case Is = 10
+txtspecial = txtspecial & "Bonus Feat" & vbCrLf
+Case Is = 9
+txtspecial = txtspecial & "Talent" & vbCrLf
+ac = ac + 1
+Case Is = 8
+txtspecial = txtspecial & "Bonus Feat" & vbCrLf
+Case Is = 7
+txtspecial = txtspecial & "Talent" & vbCrLf
+ac = ac + 1
+Case Is = 6
+txtspecial = txtspecial & "Bonus Feat" & vbCrLf
+Case Is = 5
+txtspecial = txtspecial & "Talent" & vbCrLf
+Case Is = 4
+txtspecial = txtspecial & "Bonus Feat" & vbCrLf
+ac = ac + 1
+Case Is = 3
+txtspecial = txtspecial & "Talent" & vbCrLf
+Case Is = 2
+txtspecial = txtspecial & "Bonus Feat" & vbCrLf
+ac = ac + 1
+Case Is = 1
+txtspecial = txtspecial & "Talent" & vbCrLf
+ac = ac + 1
+End Select
+
+spec_loop = spec_loop - 1
+Loop Until spec_loop = 0
+
+Case Is = "Smart"
+ba = ba + b_att(3, Class(4))
+will_save = will_save + will(2, Class(4))
+ref_save = ref_save + ref(3, Class(4))
+fort_save = fort_save + fort(3, Class(4))
+hp = hp + (6 + con_mod) * Class(4)
+skill_pts = skill_pts + (8 + int_mod) * Class(4)
+
+spec_loop = Class(4)
+Do 'loop will lower by one each time, until it reaches zero, in order to minimise code.
+
+Select Case spec_loop
+Case Is = 10
+txtspecial = txtspecial & "Bonus Feat" & vbCrLf
+Case Is = 9
+txtspecial = txtspecial & "Talent" & vbCrLf
+Case Is = 8
+txtspecial = txtspecial & "Bonus Feat" & vbCrLf
+ac = ac + 1
+Case Is = 7
+txtspecial = txtspecial & "Talent" & vbCrLf
+Case Is = 6
+txtspecial = txtspecial & "Bonus Feat" & vbCrLf
+Case Is = 5
+txtspecial = txtspecial & "Talent" & vbCrLf
+ac = ac + 1
+Case Is = 4
+txtspecial = txtspecial & "Bonus Feat" & vbCrLf
+Case Is = 3
+txtspecial = txtspecial & "Talent" & vbCrLf
+Case Is = 2
+txtspecial = txtspecial & "Bonus Feat" & vbCrLf
+ac = ac + 1
+Case Is = 1
+txtspecial = txtspecial & "Talent" & vbCrLf
+End Select
+
+spec_loop = spec_loop - 1
+Loop Until spec_loop = 0
+
+Case Is = "Dedicated"
+ba = ba + b_att(2, Class(5))
+will_save = will_save + will(2, Class(5))
+ref_save = ref_save + ref(3, Class(5))
+fort_save = fort_save + fort(2, Class(5))
+hp = hp + (6 + con_mod) * Class(5)
+skill_pts = skill_pts + (4 + int_mod) * Class(5)
+
+spec_loop = Class(5)
+Do 'loop will lower by one each time, until it reaches zero, in order to minimise code.
+
+Select Case spec_loop
+Case Is = 10
+txtspecial = txtspecial & "Bonus Feat" & vbCrLf
+Case Is = 9
+txtspecial = txtspecial & "Talent" & vbCrLf
+ac = ac + 1
+Case Is = 8
+txtspecial = txtspecial & "Bonus Feat" & vbCrLf
+Case Is = 7
+txtspecial = txtspecial & "Talent" & vbCrLf
+ac = ac + 1
+Case Is = 6
+txtspecial = txtspecial & "Bonus Feat" & vbCrLf
+Case Is = 5
+txtspecial = txtspecial & "Talent" & vbCrLf
+Case Is = 4
+txtspecial = txtspecial & "Bonus Feat" & vbCrLf
+ac = ac + 1
+Case Is = 3
+txtspecial = txtspecial & "Talent" & vbCrLf
+Case Is = 2
+txtspecial = txtspecial & "Bonus Feat" & vbCrLf
+ac = ac + 1
+Case Is = 1
+txtspecial = txtspecial & "Talent" & vbCrLf
+ac = ac + 1
+End Select
+
+spec_loop = spec_loop - 1
+Loop Until spec_loop = 0
+
+Case Is = "Charismatic"
+ba = ba + b_att(3, Class(6))
+will_save = will_save + will(3, Class(6))
+ref_save = ref_save + ref(2, Class(6))
+fort_save = fort_save + fort(2, Class(6))
+hp = hp + (6 + con_mod) * Class(6)
+skill_pts = skill_pts + (6 + int_mod) * Class(6)
+
+spec_loop = Class(6)
+Do 'loop will lower by one each time, until it reaches zero, in order to minimise code.
+
+Select Case spec_loop
+Case Is = 10
+txtspecial = txtspecial & "Bonus Feat" & vbCrLf
+Case Is = 9
+txtspecial = txtspecial & "Talent" & vbCrLf
+Case Is = 8
+txtspecial = txtspecial & "Bonus Feat" & vbCrLf
+ac = ac + 1
+Case Is = 7
+txtspecial = txtspecial & "Talent" & vbCrLf
+Case Is = 6
+txtspecial = txtspecial & "Bonus Feat" & vbCrLf
+Case Is = 5
+txtspecial = txtspecial & "Talent" & vbCrLf
+ac = ac + 1
+Case Is = 4
+txtspecial = txtspecial & "Bonus Feat" & vbCrLf
+Case Is = 3
+txtspecial = txtspecial & "Talent" & vbCrLf
+Case Is = 2
+txtspecial = txtspecial & "Bonus Feat" & vbCrLf
+ac = ac + 1
+Case Is = 1
+txtspecial = txtspecial & "Talent" & vbCrLf
+End Select
+
+spec_loop = spec_loop - 1
+Loop Until spec_loop = 0
+
+Case Is = "Soldier"
+ba = ba + b_att(1, Class(7))
+will_save = will_save + will(3, Class(7))
+ref_save = ref_save + ref(3, Class(7))
+fort_save = fort_save + fort(1, Class(7))
+hp = hp + (10 + con_mod) * Class(7)
+skill_pts = skill_pts + (2 + int_mod) * Class(7)
+
+spec_loop = Class(7)
+Do 'loop will lower by one each time, until it reaches zero, in order to minimise code.
+
+Select Case spec_loop
+Case Is = 10
+txtspecial = txtspecial & "Critical Strike" & vbCrLf
+Case Is = 9
+txtspecial = txtspecial & "Bonus Feat" & vbCrLf
+feats = feats + 1
+ac = ac + 1
+Case Is = 8
+txtspecial = txtspecial & "Greater Weapon Specialisation" & vbCrLf
+Case Is = 7
+txtspecial = txtspecial & "Improved Reaction" & vbCrLf
+ac = ac + 1
+Case Is = 6
+txtspecial = txtspecial & "Bonus Feat" & vbCrLf
+feats = feats + 1
+Case Is = 5
+txtspecial = txtspecial & "Improved Critical" & vbCrLf
+ac = ac + 1
+Case Is = 4
+txtspecial = txtspecial & "Tactical Aid" & vbCrLf
+Case Is = 3
+txtspecial = txtspecial & "Bonus Feat" & vbCrLf
+feats = feats + 1
+ac = ac + 1
+Case Is = 2
+txtspecial = txtspecial & "Weapon Specialisation" & vbCrLf
+Case Is = 1
+txtspecial = txtspecial & "Weapon Focus" & vbCrLf
+ac = ac + 1
+End Select
+
+spec_loop = spec_loop - 1
+Loop Until spec_loop = 0
+
+Case Is = "Martial Artist"
+ba = ba + b_att(1, Class(8))
+will_save = will_save + will(3, Class(8))
+ref_save = ref_save + ref(1, Class(8))
+fort_save = fort_save + fort(1, Class(8))
+hp = hp + (8 + con_mod) * Class(8)
+skill_pts = skill_pts + (6 + int_mod) * Class(8)
+
+Select Case Class(8)
+Case Is = 10
+txtspecial = txtspecial & "Iron Fist - All Attacks" & vbCrLf
+Case Is >= 5
+txtspecial = txtspecial & "Iron Fist - One Attack" & vbCrLf
+End Select
+
+Select Case Class(8)
+Case Is >= 8
+txtspecial = txtspecial & "Living Weapon 1d10" & vbCrLf
+Case Is >= 4
+txtspecial = txtspecial & "Living Weapon 1d8" & vbCrLf
+Case Is >= 1
+txtspecial = txtspecial & "Living Weapon 1d6" & vbCrLf
+End Select
+
+spec_loop = Class(x)
+Do 'loop will lower by one each time, until it reaches zero, in order to minimise code.
+
+Select Case spec_loop
+Case Is = 10
+ac = ac + 1
+Case Is = 9
+txtspecial = txtspecial & "Bonus Feat" & vbCrLf
+feats = feats + 1
+Case Is = 8
+ac = ac + 1
+Case Is = 7
+txtspecial = txtspecial & "Flurry of Blows" & vbCrLf
+ac = ac + 1
+Case Is = 6
+txtspecial = txtspecial & "Bonus Feat" & vbCrLf
+feats = feats + 1
+Case Is = 5
+ac = ac + 1
+Case Is = 4
+ac = ac + 1
+Case Is = 3
+txtspecial = txtspecial & "Bonus feat" & vbCrLf
+feats = feats + 1
+Case Is = 2
+txtspecial = txtspecial & "Flying Kick" & vbCrLf
+ac = ac + 1
+Case Is = 1
+ac = ac + 1
+End Select
+
+spec_loop = spec_loop - 1
+Loop Until spec_loop = 0
+
+Case Is = "Gunslinger"
+ba = ba + b_att(2, Class(9))
+will_save = will_save + will(3, Class(9))
+ref_save = ref_save + ref(1, Class(9))
+fort_save = fort_save + fort(3, Class(9))
+hp = hp + (6 + con_mod) * Class(9)
+skill_pts = skill_pts + (8 + int_mod) * Class(9)
+
+spec_loop = Class(x)
+Do 'loop will lower by one each time, until it reaches zero, in order to minimise code.
+
+Select Case spec_loop
+Case Is = 10
+txtspecial = txtspecial & "Bullseye" & vbCrLf
+Case Is = 9
+txtspecial = txtspecial & "Bonus Feat" & vbCrLf
+ac = ac + 1
+feats = feats + 1
+Case Is = 8
+txtspecial = txtspecial & "Greater Weapon Focus" & vbCrLf
+Case Is = 7
+txtspecial = txtspecial & "Sharp Shooting" & vbCrLf
+ac = ac + 1
+Case Is = 6
+txtspecial = txtspecial & "Bonus Feat" & vbCrLf
+feats = feats + 1
+Case Is = 5
+txtspecial = txtspecial & "Lightning Shot" & vbCrLf
+ac = ac + 1
+Case Is = 4
+txtspecial = txtspecial & "Defensive Position" & vbCrLf
+Case Is = 3
+txtspecial = txtspecial & "Bonus feat" & vbCrLf
+ac = ac + 1
+feats = feats + 1
+Case Is = 2
+txtspecial = txtspecial & "Weapon Focus" & vbCrLf
+Case Is = 1
+txtspecial = txtspecial & "Close Combat Shot" & vbCrLf
+ac = ac + 1
+End Select
+
+spec_loop = spec_loop - 1
+Loop Until spec_loop = 0
+
+Case Is = "Infiltrator"
+ba = ba + b_att(3, Class(10))
+will_save = will_save + will(1, Class(10))
+ref_save = ref_save + ref(3, Class(10))
+fort_save = fort_save + fort(3, Class(10))
+hp = hp + (4 + con_mod) * Class(10)
+skill_pts = skill_pts + (2 + int_mod) * Class(10)
+
+spec_loop = Class(x)
+Do 'loop will lower by one each time, until it reaches zero, in order to minimise code.
+
+Select Case spec_loop
+Case Is = 10
+txtspecial = txtspecial & "Without a Trace" & vbCrLf
+ac = ac + 1
+Case Is = 9
+txtspecial = txtspecial & "Bonus Feat" & vbCrLf
+feats = feats + 1
+Case Is = 8
+txtspecial = txtspecial & "Improved Sweep" & vbCrLf
+ac = ac + 1
+Case Is = 7
+txtspecial = txtspecial & "Improvised Weapon Damage" & vbCrLf
+ac = ac + 1
+Case Is = 6
+txtspecial = txtspecial & "Bonus Feat" & vbCrLf
+feats = feats + 1
+Case Is = 5
+txtspecial = txtspecial & "Skill Mastery" & vbCrLf
+ac = ac + 1
+Case Is = 4
+txtspecial = txtspecial & "Improved Evasion" & vbCrLf
+ac = ac + 1
+Case Is = 3
+txtspecial = txtspecial & "Bonus Feat" & vbCrLf
+feats = feats + 1
+Case Is = 2
+txtspecial = txtspecial & "Improvised Implements" & vbCrLf
+ac = ac + 1
+Case Is = 1
+txtspecial = txtspecial & "Sweep" & vbCrLf
+ac = ac + 1
+End Select
+
+spec_loop = spec_loop - 1
+Loop Until spec_loop = 0
+
+Case Is = "Daredevil"
+ba = ba + b_att(3, Class(11))
+will_save = will_save + will(1, Class(11))
+ref_save = ref_save + ref(3, Class(11))
+fort_save = fort_save + fort(3, Class(11))
+hp = hp + (4 + con_mod) * Class(11)
+skill_pts = skill_pts + (2 + int_mod) * Class(11)
+
+Select Case Class(11)
+Case Is >= 8
+txtspecial = txtspecial & "Adrenaline Rush - Two Ability Scores" & vbCrLf
+Case Is >= 5
+txtspecial = txtspecial & "Adrenaline Rush - One Ability Scores" & vbCrLf
+End Select
+
+spec_loop = Class(x)
+Do 'loop will lower by one each time, until it reaches zero, in order to minimise code.
+
+Select Case spec_loop
+Case Is = 10
+txtspecial = txtspecial & "Damage Threshold" & vbCrLf
+ac = ac + 1
+Case Is = 9
+txtspecial = txtspecial & "Bonus Feat" & vbCrLf
+feats = feats + 1
+Case Is = 8
+ac = ac + 1
+Case Is = 7
+txtspecial = txtspecial & "Delay Damage" & vbCrLf
+ac = ac + 1
+Case Is = 6
+txtspecial = txtspecial & "Bonus Feat" & vbCrLf
+feats = feats + 1
+Case Is = 5
+ac = ac + 1
+Case Is = 4
+txtspecial = txtspecial & "Action Boost" & vbCrLf
+ac = ac + 1
+Case Is = 3
+txtspecial = txtspecial & "Bonus Feat" & vbCrLf
+feats = feats + 1
+Case Is = 2
+txtspecial = txtspecial & "Nip Up" & vbCrLf
+ac = ac + 1
+Case Is = 1
+txtspecial = txtspecial & "Fearless" & vbCrLf
+ac = ac + 1
+End Select
+
+spec_loop = spec_loop - 1
+Loop Until spec_loop = 0
+
+Case Is = "Bodyguard"
+ba = ba + b_att(1, Class(12))
+will_save = will_save + will(2, Class(12))
+ref_save = ref_save + ref(1, Class(12))
+fort_save = fort_save + fort(1, Class(12))
+hp = hp + (8 + con_mod) * Class(12)
+skill_pts = skill_pts + (4 + int_mod) * Class(12)
+
+Select Case Class(12)
+Case Is >= 8
+txtspecial = txtspecial & "Combat Sense +2" & vbCrLf
+Case Is >= 2
+txtspecial = txtspecial & "Combat Sense +1" & vbCrLf
+End Select
+
+spec_loop = Class(x)
+Do 'loop will lower by one each time, until it reaches zero, in order to minimise code.
+
+Select Case spec_loop
+Case Is = 10
+txtspecial = txtspecial & "Blanket Protection" & vbCrLf
+Case Is = 9
+txtspecial = txtspecial & "Bonus Feat" & vbCrLf
+feats = feats + 1
+ac = ac + 1
+Case Is = 7
+txtspecial = txtspecial & "Defensive Strike" & vbCrLf
+ac = ac + 1
+Case Is = 6
+txtspecial = txtspecial & "Bonus Feat" & vbCrLf
+feats = feats + 1
+Case Is = 5
+txtspecial = txtspecial & "Improved Charge" & vbCrLf
+ac = ac + 1
+Case Is = 4
+txtspecial = txtspecial & "Sudden Action" & vbCrLf
+Case Is = 3
+txtspecial = txtspecial & "Bonus Feat" & vbCrLf
+feats = feats + 1
+ac = ac + 1
+Case Is = 1
+txtspecial = txtspecial & "Harm's Way" & vbCrLf
+ac = ac + 1
+End Select
+
+spec_loop = spec_loop - 1
+Loop Until spec_loop = 0
+
+Case Is = "Field Scientist"
+ba = ba + b_att(3, Class(13))
+will_save = will_save + will(1, Class(13))
+ref_save = ref_save + ref(1, Class(13))
+fort_save = fort_save + fort(3, Class(13))
+hp = hp + 4 * Class(13)
+skill_pts = skill_pts + (4 + int_mod) * Class(13)
+
+spec_loop = Class(x)
+Do 'loop will lower by one each time, until it reaches zero, in order to minimise code.
+
+Select Case spec_loop
+Case Is = 10
+txtspecial = txtspecial & "Major Breakthrough" & vbCrLf
+Case Is = 9
+txtspecial = txtspecial & "Bonus Feat" & vbCrLf
+feats = feats + 1
+Case Is = 8
+txtspecial = txtspecial & "Smart Weapon" & vbCrLf
+ac = ac + 1
+Case Is = 7
+txtspecial = txtspecial & "Smart Survival" & vbCrLf
+Case Is = 6
+txtspecial = txtspecial & "Bonus Feat" & vbCrLf
+feats = feats + 1
+Case Is = 5
+txtspecial = txtspecial & "Minor Breakthrough" & vbCrLf
+ac = ac + 1
+Case Is = 4
+txtspecial = txtspecial & "Skill Mastery" & vbCrLf
+Case Is = 3
+txtspecial = txtspecial & "Bonus Feat" & vbCrLf
+feats = feats + 1
+Case Is = 2
+txtspecial = txtspecial & "Scientific Improvisation" & vbCrLf
+ac = ac + 1
+Case Is = 1
+txtspecial = txtspecial & "Smart Defense" & vbCrLf
+End Select
+
+spec_loop = spec_loop - 1
+Loop Until spec_loop = 0
+
+Case Is = "Techie"
+ba = ba + b_att(3, Class(14))
+will_save = will_save + will(1, Class(14))
+ref_save = ref_save + ref(3, Class(14))
+fort_save = fort_save + fort(3, Class(14))
+hp = hp + (4 + con_mod) * Class(14)
+skill_pts = skill_pts + (2 + int_mod) * Class(14)
+
+Select Case Class(14)
+Case Is >= 1
+txtspecial = txtspecial & "Jury Rig +4" & vbCrLf
+Case Is >= 7
+txtspecial = txtspecial & "Jury Rig +2" & vbCrLf
+End Select
+
+spec_loop = Class(x)
+Do 'loop will lower by one each time, until it reaches zero, in order to minimise code.
+
+Select Case spec_loop
+Case Is = 10
+txtspecial = txtspecial & "Mastercraft" & vbCrLf
+Case Is = 9
+txtspecial = txtspecial & "Bonus Feat" & vbCrLf
+feats = feats + 1
+ac = ac + 1
+Case Is = 8
+txtspecial = txtspecial & "Mastercraft" & vbCrLf
+Case Is = 7
+ac = ac + 1
+Case Is = 6
+txtspecial = txtspecial & "Bonus Feat" & vbCrLf
+feats = feats + 1
+Case Is = 5
+txtspecial = txtspecial & "Mastercraft" & vbCrLf
+ac = ac + 1
+Case Is = 4
+txtspecial = txtspecial & "Build Robot" & vbCrLf
+Case Is = 3
+txtspecial = txtspecial & "Bonus Feat" & vbCrLf
+feats = feats + 1
+ac = ac + 1
+Case Is = 2
+txtspecial = txtspecial & "Extreme Machine" & vbCrLf
+Case Is = 1
+ac = ac + 1
+End Select
+
+spec_loop = spec_loop - 1
+Loop Until spec_loop = 0
+
+Case Is = "Field Medic"
+ba = ba + b_att(2, Class(15))
+will_save = will_save + will(3, Class(15))
+ref_save = ref_save + ref(1, Class(15))
+fort_save = fort_save + fort(3, Class(15))
+hp = hp + (6 + con_mod) * Class(15)
+skill_pts = skill_pts + (4 + int_mod) * Class(15)
+
+Select Case Class(15)
+Case Is >= 8
+txtspecial = txtspecial & "Medical Specialist +3" & vbCrLf
+Case Is >= 5
+txtspecial = txtspecial & "Medical Specialist +2" & vbCrLf
+Case Is >= 1
+txtspecial = txtspecial & "Medical Specialist +1" & vbCrLf
+End Select
+
+spec_loop = Class(x)
+Do 'loop will lower by one each time, until it reaches zero, in order to minimise code.
+
+Select Case spec_loop
+Case Is = 10
+txtspecial = txtspecial & "Medical Miracle" & vbCrLf
+Case Is = 9
+txtspecial = txtspecial & "Bonus Feat" & vbCrLf
+feats = feats + 1
+ac = ac + 1
+Case Is = 7
+txtspecial = txtspecial & "Minor Medical Miracle" & vbCrLf
+ac = ac + 1
+Case Is = 6
+txtspecial = txtspecial & "Bonus Feat" & vbCrLf
+feats = feats + 1
+Case Is = 5
+ac = ac + 1
+Case Is = 4
+txtspecial = txtspecial & "Medical Mastery" & vbCrLf
+Case Is = 3
+txtspecial = txtspecial & "Bonus Feat" & vbCrLf
+feats = feats + 1
+ac = ac + 1
+Case Is = 2
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 1
+ac = ac + 1
+End Select
+
+spec_loop = spec_loop - 1
+Loop Until spec_loop = 0
+
+Case Is = "Investigator"
+ba = ba + b_att(2, Class(16))
+will_save = will_save + will(3, Class(16))
+ref_save = ref_save + ref(3, Class(16))
+fort_save = fort_save + fort(1, Class(16))
+hp = hp + (10 + con_mod) * Class(16)
+skill_pts = skill_pts + (2 + int_mod) * Class(16)
+
+spec_loop = Class(x)
+Do 'loop will lower by one each time, until it reaches zero, in order to minimise code.
+
+Select Case spec_loop
+Case Is = 10
+txtspecial = txtspecial & "Sixth Sense" & vbCrLf
+Case Is = 9
+txtspecial = txtspecial & "Bonus Feat" & vbCrLf
+feats = feats + 1
+ac = ac + 1
+Case Is = 8
+txtspecial = txtspecial & "Contact - High Level" & vbCrLf
+Case Is = 7
+txtspecial = txtspecial & "Discern Lie" & vbCrLf
+ac = ac + 1
+Case Is = 6
+txtspecial = txtspecial & "Bonus Feat" & vbCrLf
+feats = feats + 1
+Case Is = 5
+txtspecial = txtspecial & "Contact - Mid Level" & vbCrLf
+ac = ac + 1
+Case Is = 4
+txtspecial = txtspecial & "Non-Lethal Force" & vbCrLf
+Case Is = 3
+txtspecial = txtspecial & "Bonus Feat" & vbCrLf
+feats = feats + 1
+ac = ac + 1
+Case Is = 2
+txtspecial = txtspecial & "Contact - Low Level" & vbCrLf
+Case Is = 1
+txtspecial = txtspecial & "Profile" & vbCrLf
+ac = ac + 1
+End Select
+
+spec_loop = spec_loop - 1
+Loop Until spec_loop = 0
+
+Case Is = "Personality"
+ba = ba + b_att(2, Class(17))
+will_save = will_save + will(1, Class(17))
+ref_save = ref_save + ref(3, Class(17))
+fort_save = fort_save + fort(1, Class(17))
+hp = hp + (12 + con_mod) * Class(17)
+skill_pts = skill_pts + (2 + int_mod) * Class(17)
+
+spec_loop = Class(x)
+Do 'loop will lower by one each time, until it reaches zero, in order to minimise code.
+
+Select Case spec_loop
+Case Is = 10
+txtspecial = txtspecial & "Compelling Performance" & vbCrLf
+Case Is = 9
+txtspecial = txtspecial & "Bonus feat" & vbCrLf
+feats = feats + 1
+Case Is = 8
+txtspecial = txtspecial & "Royalty" & vbCrLf
+ac = ac + 1
+Case Is = 7
+txtspecial = txtspecial & "Bonus Class Skill" & vbCrLf
+Case Is = 6
+txtspecial = txtspecial & "Bonus Feat" & vbCrLf
+feats = feats + 1
+Case Is = 5
+txtspecial = txtspecial & "winning Smile" & vbCrLf
+ac = ac + 1
+Case Is = 4
+txtspecial = txtspecial & "Royalty" & vbCrLf
+Case Is = 3
+txtspecial = txtspecial & "Bonus Feat" & vbCrLf
+feats = feats + 1
+Case Is = 2
+txtspecial = txtspecial & "Bonus Class Skill" & vbCrLf
+ac = ac + 1
+Case Is = 1
+txtspecial = txtspecial & "Unlimited Access" & vbCrLf
+End Select
+
+spec_loop = spec_loop - 1
+Loop Until spec_loop = 0
+
+Case Is = ""
+ba = ba + b_att(1, Class(18))
+will_save = will_save + will(3, Class(18))
+ref_save = ref_save + ref(1, Class(18))
+fort_save = fort_save + fort(3, Class(18))
+hp = hp + (10 + con_mod) * Class(18)
+skill_pts = skill_pts + (4 + int_mod) * Class(18)
+
+Select Case Class(18)
+Case Is = 10
+txtspecial = txtspecial & "" & vbCrLf
+Case Is >= 7
+txtspecial = txtspecial & "" & vbCrLf
+Case Is >= 4
+txtspecial = txtspecial & "" & vbCrLf
+end select
+
+spec_loop = Class(18)
+Do 'loop will lower by one each time, until it reaches zero, in order to minimise code.
+
+Select Case spec_loop
+Case Is = 10
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 9
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 8
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 7
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 6
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 5
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 4
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 3
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 2
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 1
+txtspecial = txtspecial & "" & vbCrLf
+End Select
+
+spec_loop = spec_loop - 1
+Loop Until spec_loop = 0
+
+Case Is = ""
+ba = ba + b_att(1, Class(19))
+will_save = will_save + will(3, Class(19))
+ref_save = ref_save + ref(1, Class(19))
+fort_save = fort_save + fort(3, Class(19))
+hp = hp + (10 + con_mod) * Class(18)
+skill_pts = skill_pts + (4 + int_mod) * Class(19)
+
+Select Case Class(19)
+Case Is = 10
+txtspecial = txtspecial & "" & vbCrLf
+Case Is >= 7
+txtspecial = txtspecial & "" & vbCrLf
+Case Is >= 4
+txtspecial = txtspecial & "" & vbCrLf
+end select
+
+spec_loop = Class(19)
+Do 'loop will lower by one each time, until it reaches zero, in order to minimise code.
+
+Select Case spec_loop
+Case Is = 10
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 9
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 8
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 7
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 6
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 5
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 4
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 3
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 2
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 1
+txtspecial = txtspecial & "" & vbCrLf
+End Select
+
+spec_loop = spec_loop - 1
+Loop Until spec_loop = 0
+
+Case Is = ""
+ba = ba + b_att(1, Class(20))
+will_save = will_save + will(3, Class(20))
+ref_save = ref_save + ref(1, Class(20))
+fort_save = fort_save + fort(3, Class(20))
+hp = hp + (10 + con_mod) * Class(20)
+skill_pts = skill_pts + (4 + int_mod) * Class(20)
+
+Select Case Class(20)
+Case Is = 10
+txtspecial = txtspecial & "" & vbCrLf
+Case Is >= 7
+txtspecial = txtspecial & "" & vbCrLf
+Case Is >= 4
+txtspecial = txtspecial & "" & vbCrLf
+end select
+
+spec_loop = Class(20)
+Do 'loop will lower by one each time, until it reaches zero, in order to minimise code.
+
+Select Case spec_loop
+Case Is = 10
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 9
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 8
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 7
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 6
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 5
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 4
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 3
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 2
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 1
+txtspecial = txtspecial & "" & vbCrLf
+End Select
+
+spec_loop = spec_loop - 1
+Loop Until spec_loop = 0
+
+Case Is = ""
+ba = ba + b_att(1, Class(21))
+will_save = will_save + will(3, Class(21))
+ref_save = ref_save + ref(1, Class(21))
+fort_save = fort_save + fort(3, Class(21))
+hp = hp + (10 + con_mod) * Class(18)
+skill_pts = skill_pts + (4 + int_mod) * Class(21)
+
+Select Case Class(21)
+Case Is = 10
+txtspecial = txtspecial & "" & vbCrLf
+Case Is >= 7
+txtspecial = txtspecial & "" & vbCrLf
+Case Is >= 4
+txtspecial = txtspecial & "" & vbCrLf
+end select
+
+spec_loop = Class(21)
+Do 'loop will lower by one each time, until it reaches zero, in order to minimise code.
+
+Select Case spec_loop
+Case Is = 10
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 9
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 8
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 7
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 6
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 5
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 4
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 3
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 2
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 1
+txtspecial = txtspecial & "" & vbCrLf
+End Select
+
+spec_loop = spec_loop - 1
+Loop Until spec_loop = 0
+
+Case Is = ""
+ba = ba + b_att(1, Class(22))
+will_save = will_save + will(3, Class(22))
+ref_save = ref_save + ref(1, Class(22))
+fort_save = fort_save + fort(3, Class(22))
+hp = hp + (10 + con_mod) * Class(22)
+skill_pts = skill_pts + (4 + int_mod) * Class(22)
+
+Select Case Class(22)
+Case Is = 10
+txtspecial = txtspecial & "" & vbCrLf
+Case Is >= 7
+txtspecial = txtspecial & "" & vbCrLf
+Case Is >= 4
+txtspecial = txtspecial & "" & vbCrLf
+end select
+
+spec_loop = Class(22)
+Do 'loop will lower by one each time, until it reaches zero, in order to minimise code.
+
+Select Case spec_loop
+Case Is = 10
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 9
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 8
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 7
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 6
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 5
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 4
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 3
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 2
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 1
+txtspecial = txtspecial & "" & vbCrLf
+End Select
+
+spec_loop = spec_loop - 1
+Loop Until spec_loop = 0
+
+Case Is = ""
+ba = ba + b_att(1, Class(23))
+will_save = will_save + will(3, Class(23))
+ref_save = ref_save + ref(1, Class(23))
+fort_save = fort_save + fort(3, Class(23))
+hp = hp + (10 + con_mod) * Class(23)
+skill_pts = skill_pts + (4 + int_mod) * Class(23)
+
+Select Case Class(23)
+Case Is = 10
+txtspecial = txtspecial & "" & vbCrLf
+Case Is >= 7
+txtspecial = txtspecial & "" & vbCrLf
+Case Is >= 4
+txtspecial = txtspecial & "" & vbCrLf
+end select
+
+spec_loop = Class(23)
+Do 'loop will lower by one each time, until it reaches zero, in order to minimise code.
+
+Select Case spec_loop
+Case Is = 10
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 9
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 8
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 7
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 6
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 5
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 4
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 3
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 2
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 1
+txtspecial = txtspecial & "" & vbCrLf
+End Select
+
+spec_loop = spec_loop - 1
+Loop Until spec_loop = 0
+
+Case Is = ""
+ba = ba + b_att(1, Class(24))
+will_save = will_save + will(3, Class(24))
+ref_save = ref_save + ref(1, Class(24))
+fort_save = fort_save + fort(3, Class(24))
+hp = hp + (10 + con_mod) * Class(24)
+skill_pts = skill_pts + (4 + int_mod) * Class(24)
+
+Select Case Class(24)
+Case Is = 10
+txtspecial = txtspecial & "" & vbCrLf
+Case Is >= 7
+txtspecial = txtspecial & "" & vbCrLf
+Case Is >= 4
+txtspecial = txtspecial & "" & vbCrLf
+end select
+
+spec_loop = Class(24)
+Do 'loop will lower by one each time, until it reaches zero, in order to minimise code.
+
+Select Case spec_loop
+Case Is = 10
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 9
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 8
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 7
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 6
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 5
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 4
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 3
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 2
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 1
+txtspecial = txtspecial & "" & vbCrLf
+End Select
+
+spec_loop = spec_loop - 1
+Loop Until spec_loop = 0
+
+Case Is = ""
+ba = ba + b_att(1, Class(25))
+will_save = will_save + will(3, Class(25))
+ref_save = ref_save + ref(1, Class(25))
+fort_save = fort_save + fort(3, Class(25))
+hp = hp + (10 + con_mod) * Class(25)
+skill_pts = skill_pts + (4 + int_mod) * Class(25)
+
+Select Case Class(25)
+Case Is = 10
+txtspecial = txtspecial & "" & vbCrLf
+Case Is >= 7
+txtspecial = txtspecial & "" & vbCrLf
+Case Is >= 4
+txtspecial = txtspecial & "" & vbCrLf
+end select
+
+spec_loop = Class(25)
+Do 'loop will lower by one each time, until it reaches zero, in order to minimise code.
+
+Select Case spec_loop
+Case Is = 10
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 9
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 8
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 7
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 6
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 5
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 4
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 3
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 2
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 1
+txtspecial = txtspecial & "" & vbCrLf
+End Select
+
+spec_loop = spec_loop - 1
+Loop Until spec_loop = 0
+
+Case Is = ""
+ba = ba + b_att(1, Class(26))
+will_save = will_save + will(3, Class(26))
+ref_save = ref_save + ref(1, Class(26))
+fort_save = fort_save + fort(3, Class(26))
+hp = hp + (10 + con_mod) * Class(26)
+skill_pts = skill_pts + (4 + int_mod) * Class(26)
+
+Select Case Class(26)
+Case Is = 10
+txtspecial = txtspecial & "" & vbCrLf
+Case Is >= 7
+txtspecial = txtspecial & "" & vbCrLf
+Case Is >= 4
+txtspecial = txtspecial & "" & vbCrLf
+end select
+
+spec_loop = Class(26)
+Do 'loop will lower by one each time, until it reaches zero, in order to minimise code.
+
+Select Case spec_loop
+Case Is = 10
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 9
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 8
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 7
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 6
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 5
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 4
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 3
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 2
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 1
+txtspecial = txtspecial & "" & vbCrLf
+End Select
+
+spec_loop = spec_loop - 1
+Loop Until spec_loop = 0
+
+Case Is = ""
+ba = ba + b_att(1, Class(27))
+will_save = will_save + will(3, Class(27))
+ref_save = ref_save + ref(1, Class(27))
+fort_save = fort_save + fort(3, Class(27))
+hp = hp + (10 + con_mod) * Class(27)
+skill_pts = skill_pts + (4 + int_mod) * Class(27)
+
+Select Case Class(27)
+Case Is = 10
+txtspecial = txtspecial & "" & vbCrLf
+Case Is >= 7
+txtspecial = txtspecial & "" & vbCrLf
+Case Is >= 4
+txtspecial = txtspecial & "" & vbCrLf
+end select
+
+spec_loop = Class(27)
+Do 'loop will lower by one each time, until it reaches zero, in order to minimise code.
+
+Select Case spec_loop
+Case Is = 10
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 9
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 8
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 7
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 6
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 5
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 4
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 3
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 2
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 1
+txtspecial = txtspecial & "" & vbCrLf
+End Select
+
+spec_loop = spec_loop - 1
+Loop Until spec_loop = 0
+
+Case Is = ""
+ba = ba + b_att(1, Class(28))
+will_save = will_save + will(3, Class(28))
+ref_save = ref_save + ref(1, Class(28))
+fort_save = fort_save + fort(3, Class(28))
+hp = hp + (10 + con_mod) * Class(28)
+skill_pts = skill_pts + (4 + int_mod) * Class(28)
+
+Select Case Class(28)
+Case Is = 10
+txtspecial = txtspecial & "" & vbCrLf
+Case Is >= 7
+txtspecial = txtspecial & "" & vbCrLf
+Case Is >= 4
+txtspecial = txtspecial & "" & vbCrLf
+end select
+
+spec_loop = Class(28)
+Do 'loop will lower by one each time, until it reaches zero, in order to minimise code.
+
+Select Case spec_loop
+Case Is = 10
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 9
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 8
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 7
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 6
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 5
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 4
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 3
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 2
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 1
+txtspecial = txtspecial & "" & vbCrLf
+End Select
+
+spec_loop = spec_loop - 1
+Loop Until spec_loop = 0
+
+Case Is = ""
+ba = ba + b_att(1, Class(29))
+will_save = will_save + will(3, Class(29))
+ref_save = ref_save + ref(1, Class(29))
+fort_save = fort_save + fort(3, Class(29))
+hp = hp + (10 + con_mod) * Class(29)
+skill_pts = skill_pts + (4 + int_mod) * Class(29)
+
+Select Case Class(29)
+Case Is = 10
+txtspecial = txtspecial & "" & vbCrLf
+Case Is >= 7
+txtspecial = txtspecial & "" & vbCrLf
+Case Is >= 4
+txtspecial = txtspecial & "" & vbCrLf
+end select
+
+spec_loop = Class(29)
+Do 'loop will lower by one each time, until it reaches zero, in order to minimise code.
+
+Select Case spec_loop
+Case Is = 10
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 9
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 8
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 7
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 6
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 5
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 4
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 3
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 2
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 1
+txtspecial = txtspecial & "" & vbCrLf
+End Select
+
+spec_loop = spec_loop - 1
+Loop Until spec_loop = 0
+
+Case Is = ""
+ba = ba + b_att(1, Class(30))
+will_save = will_save + will(3, Class(30))
+ref_save = ref_save + ref(1, Class(30))
+fort_save = fort_save + fort(3, Class(30))
+hp = hp + (10 + con_mod) * Class(30)
+skill_pts = skill_pts + (4 + int_mod) * Class(30)
+
+Select Case Class(30)
+Case Is = 10
+txtspecial = txtspecial & "" & vbCrLf
+Case Is >= 7
+txtspecial = txtspecial & "" & vbCrLf
+Case Is >= 4
+txtspecial = txtspecial & "" & vbCrLf
+end select
+
+spec_loop = Class(30)
+Do 'loop will lower by one each time, until it reaches zero, in order to minimise code.
+
+Select Case spec_loop
+Case Is = 10
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 9
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 8
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 7
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 6
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 5
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 4
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 3
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 2
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 1
+txtspecial = txtspecial & "" & vbCrLf
+End Select
+
+spec_loop = spec_loop - 1
+Loop Until spec_loop = 0
+
+Case Is = ""
+ba = ba + b_att(1, Class(31))
+will_save = will_save + will(3, Class(31))
+ref_save = ref_save + ref(1, Class(31))
+fort_save = fort_save + fort(3, Class(31))
+hp = hp + (10 + con_mod) * Class(31)
+skill_pts = skill_pts + (4 + int_mod) * Class(31)
+
+Select Case Class(31)
+Case Is = 10
+txtspecial = txtspecial & "" & vbCrLf
+Case Is >= 7
+txtspecial = txtspecial & "" & vbCrLf
+Case Is >= 4
+txtspecial = txtspecial & "" & vbCrLf
+end select
+
+spec_loop = Class(31)
+Do 'loop will lower by one each time, until it reaches zero, in order to minimise code.
+
+Select Case spec_loop
+Case Is = 10
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 9
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 8
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 7
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 6
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 5
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 4
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 3
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 2
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 1
+txtspecial = txtspecial & "" & vbCrLf
+End Select
+
+spec_loop = spec_loop - 1
+Loop Until spec_loop = 0
+
+Case Is = ""
+ba = ba + b_att(1, Class(32))
+will_save = will_save + will(3, Class(32))
+ref_save = ref_save + ref(1, Class(32))
+fort_save = fort_save + fort(3, Class(32))
+hp = hp + (10 + con_mod) * Class(32)
+skill_pts = skill_pts + (4 + int_mod) * Class(32)
+
+Select Case Class(32)
+Case Is = 10
+txtspecial = txtspecial & "" & vbCrLf
+Case Is >= 7
+txtspecial = txtspecial & "" & vbCrLf
+Case Is >= 4
+txtspecial = txtspecial & "" & vbCrLf
+end select
+
+spec_loop = Class(32)
+Do 'loop will lower by one each time, until it reaches zero, in order to minimise code.
+
+Select Case spec_loop
+Case Is = 10
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 9
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 8
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 7
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 6
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 5
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 4
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 3
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 2
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 1
+txtspecial = txtspecial & "" & vbCrLf
+End Select
+
+spec_loop = spec_loop - 1
+Loop Until spec_loop = 0
+
+Case Is = ""
+ba = ba + b_att(1, Class(33))
+will_save = will_save + will(3, Class(33))
+ref_save = ref_save + ref(1, Class(33))
+fort_save = fort_save + fort(3, Class(33))
+hp = hp + (10 + con_mod) * Class(33)
+skill_pts = skill_pts + (4 + int_mod) * Class(33)
+
+Select Case Class(33)
+Case Is = 10
+txtspecial = txtspecial & "" & vbCrLf
+Case Is >= 7
+txtspecial = txtspecial & "" & vbCrLf
+Case Is >= 4
+txtspecial = txtspecial & "" & vbCrLf
+end select
+
+spec_loop = Class(33)
+Do 'loop will lower by one each time, until it reaches zero, in order to minimise code.
+
+Select Case spec_loop
+Case Is = 10
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 9
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 8
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 7
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 6
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 5
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 4
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 3
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 2
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 1
+txtspecial = txtspecial & "" & vbCrLf
+End Select
+
+spec_loop = spec_loop - 1
+Loop Until spec_loop = 0
+
+Case Is = ""
+ba = ba + b_att(1, Class(34))
+will_save = will_save + will(3, Class(34))
+ref_save = ref_save + ref(1, Class(34))
+fort_save = fort_save + fort(3, Class(34))
+hp = hp + (10 + con_mod) * Class(34)
+skill_pts = skill_pts + (4 + int_mod) * Class(34)
+
+Select Case Class(34)
+Case Is = 10
+txtspecial = txtspecial & "" & vbCrLf
+Case Is >= 7
+txtspecial = txtspecial & "" & vbCrLf
+Case Is >= 4
+txtspecial = txtspecial & "" & vbCrLf
+end select
+
+spec_loop = Class(34)
+Do 'loop will lower by one each time, until it reaches zero, in order to minimise code.
+
+Select Case spec_loop
+Case Is = 10
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 9
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 8
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 7
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 6
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 5
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 4
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 3
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 2
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 1
+txtspecial = txtspecial & "" & vbCrLf
+End Select
+
+spec_loop = spec_loop - 1
+Loop Until spec_loop = 0
+
+Case Is = ""
+ba = ba + b_att(1, Class(35))
+will_save = will_save + will(3, Class(35))
+ref_save = ref_save + ref(1, Class(35))
+fort_save = fort_save + fort(3, Class(35))
+hp = hp + (10 + con_mod) * Class(35)
+skill_pts = skill_pts + (4 + int_mod) * Class(35)
+
+Select Case Class(35)
+Case Is = 10
+txtspecial = txtspecial & "" & vbCrLf
+Case Is >= 7
+txtspecial = txtspecial & "" & vbCrLf
+Case Is >= 4
+txtspecial = txtspecial & "" & vbCrLf
+end select
+
+spec_loop = Class(35)
+Do 'loop will lower by one each time, until it reaches zero, in order to minimise code.
+
+Select Case spec_loop
+Case Is = 10
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 9
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 8
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 7
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 6
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 5
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 4
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 3
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 2
+txtspecial = txtspecial & "" & vbCrLf
+Case Is = 1
+txtspecial = txtspecial & "" & vbCrLf
+End Select
+
+spec_loop = spec_loop - 1
+Loop Until spec_loop = 0
+
+
+End Select
+
+counter(3) = counter(3) + 1
+
+Loop Until select_cls = ""
+
+txtmods = "BA   " & ba & vbCrLf & "WILL " & will_save & vbCrLf & "FORT " & fort_save & vbCrLf & " REF  " & ref_save
+
+End Sub
+

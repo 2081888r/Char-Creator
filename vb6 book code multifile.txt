@@ -1,0 +1,37 @@
+commondialog1.flags = cdl0FNAllowMultiselect
+Label1.Caption = " "
+List1.Clear
+commondialog1.Filter = "All Files|*.*"
+filenames = commondialog1.filename
+If Len(filenames) = 0 Then
+MsgBox "no files selected"
+Exit Sub
+End If
+'extract filename
+'if filetitle not empty, then a single file
+'has been selected. display it and exit
+If commondialog1.filetitle <> " " Then
+List1.AddItem commondialog1.filetitle
+Exit Sub
+End If
+'filetitel is not empty, then many files selected
+'and must be extracted from filename property
+spposition = InStr(filenames, " ")
+pathname = Left(filenames, spposition - 1)
+Label1.Caption = pathname
+filenames = Mid(filenames, spposition + 1)
+'then extract each space delimited filename
+If Len(filenames) = 0 Then
+List1.AddItem "no files selected"
+Exit Sub
+Else
+spposition = InStr(filenames, " ")
+While spposition > 0
+List1.AddItem Left(filenames, spposition + 1)
+spposition = InStr(filenames, " ")
+Wend
+'add the last files name to the list
+' (the last file name isnt followed by a space)
+List1.AddItem filenames
+End If
+End Sub

@@ -1,0 +1,315 @@
+ Sub mod_classes(ByVal level As Integer, ByRef ba As Integer, ByRef b_att() As Integer, ByRef will_save As Integer, ByRef will() As Integer, ByRef ref_save As Integer, ByRef ref() As Integer, ByRef fort_save As Integer, ByRef fort() As Integer, byref hp as integer, byval con_mod as integer, byval skill_pts as integer)
+
+Dim counter(3) As Integer
+Dim Class(18) As Integer 'finds out the levels in each class
+Dim lvl As Integer 'individual level in class
+Dim ttl_lvl As Integer 'total levels used
+Dim cls As String
+Dim chosen(19) As String
+Dim selected As Integer
+Dim select_cls As String
+Dim increment As Integer
+
+txtclasses = "Basic" & vbCrLf & vbCrLf & "Strong" & vbCrLf & "Fast" & vbCrLf & "Tough" & vbCrLf & "Smart" & vbCrLf & "Dedicated" & vbCrLf & "Charismatic"
+
+txtprestclasses = txtprestclasses & "Prestige" & vbCrLf & vbCrLf & "Arcane Archer" & vbCrLf & "" vbCrLf
+
+txtprestclasses = txtprestclasses & vbCrLf & "Soldier" & vbCrLf & "" & vbCrLf
+
+txtprestclasses = txtprestclasses & vbCrLf & "Martial Artist" & vbCrLf & "" & vbCrLf
+
+txtprestclasses = txtprestclasses & vbCrLf & "Gunslinger" & vbCrLf & "" & vbCrLf
+
+txtprestclasses = txtprestclasses & vbCrLf & "Infiltrator" & vbCrLf & "" & vbCrLf
+
+txtprestclasses = txtprestclasses & vbCrLf & "Daredevil" & vbCrLf & "" & vbCrLf
+
+txtprestclasses = txtprestclasses & vbCrLf & "Bodyguard" & vbCrLf & "" & vbCrLf
+
+txtprestclasses = txtprestclasses & vbCrLf & "Field Scientist" & vbCrLf & "" & vbCrLf
+
+txtprestclasses = txtprestclasses & vbCrLf & "Techie" & vbCrLf & "" & vbCrLf
+
+txtprestclasses = txtprestclasses & vbCrLf & "Field Medic" & vbCrLf & "" & vbCrLf
+
+txtprestclasses = txtprestclasses & vbCrLf & "Investigator" & vbCrLf & "" & vbCrLf
+
+txtprestclasses = txtprestclasses & vbCrLf & "Personality" & vbCrLf & "" & vbCrLf
+
+txtprestclasses = txtprestclasses & vbCrLf & "Negotiator" & vbCrLf & "" & vbCrLf
+
+ttl_lvl = 0
+
+counter(2) = 1
+counter(3) = 1
+
+
+Do
+For counter(1) = 1 To level
+If ttl_lvl < level Then
+
+
+
+
+Do
+cls = InputBox("select the class that you wish to take. Initial letter must be uppercase, i.e. Barbarian, Bard, Assassin")
+Loop Until cls = "Strong" Or cls = "Fast" Or cls = "Tough" Or cls = "Smart" Or cls = "Dedicated" Or cls = "Charismatic" Or cls = "Soldier" Or cls = "Martial Artist" Or cls = "Gunslinger" Or cls = "Infiltrator" Or cls = "Daredevil" Or cls = "Bodyguard" Or cls = "Field Scientist" Or cls = "Techie" Or cls = "Field Medic" Or cls = "Investigator" Or cls = "Personality" Or cls = "Negotiator"
+
+chosen(counter(2)) = cls
+
+
+Do
+lvl = InputBox("select how many levels you wish to take in that class")
+
+
+If cls = "Strong" Or cls = "Fast" Or cls = "Tough" Or cls = "Smart" Or cls = "Dedicated" Or cls = "Charismatic" Or cls = "Soldier" Or cls = "Martial Artist" Or cls = "Gunslinger" Or cls = "Infiltrator" Or cls = "Daredevil" Or cls = "Bodyguard" Or cls = "Field Scientist" Or cls = "Techie" Or cls = "Field Medic" Or cls = "Investigator" Or cls = "Personality" Or cls = "Negotiator" Then
+
+Do
+
+If lvl > 10 Then
+lvl = InputBox("max of 10 levels in class you wish to take in that class")
+End If
+Loop Until lvl <= 10
+End If
+
+loop Until lvl <= level
+ttl_lvl = ttl_lvl + lvl
+
+
+
+Select Case cls 'finds out how many levels are in each class
+Case Is = "Strong"
+Class(1) = Class(1) + lvl
+
+Case Is = "Fast"
+Class(2) = Class(2) + lvl
+
+Case Is = "Tough"
+Class(3) = Class(3) + lvl
+
+Case Is = "Smart"
+Class(4) = Class(4) + lvl
+
+Case Is = "Dedicated"
+Class(5) = Class(5) + lvl
+
+Case Is = "Charismatic"
+Class(6) = Class(6) + lvl
+
+Case Is = "Soldier"
+Class(7) = Class(7) + lvl
+
+Case Is = "Martial Artist"
+Class(8) = Class(8) + lvl
+
+Case Is = "Gunslinger"
+Class(9) = Class(9) + lvl
+
+Case Is = "Infiltrator"
+Class(10) = Class(10) + lvl
+
+Case Is = "Daredevil"
+Class(11) = Class(11) + lvl
+
+Case Is = "Bodyguard"
+Class(12) = Class(12) + lvl
+
+Case Is = "Field Scientist"
+Class(13) = Class(13) + lvl
+
+Case Is = "Techie"
+Class(14) = Class(14) + lvl
+
+Case Is = "Field Medic"
+Class(15) = Class(15) + lvl
+
+Case Is = "Investigator"
+Class(16) = Class(16) + lvl
+
+Case Is = "Personality"
+Class(17) = Class(17) + lvl
+
+Case Is = "Negotiator"
+Class(18) = Class(18) + lvl
+End Select
+
+counter(2) = counter(2) + 1
+
+End If
+
+Next counter(1)
+
+Loop Until ttl_lvl = level
+
+
+increment = 1
+
+Do 'makes sure that no duplicates appear in chosen class
+
+select_cls = chosen(increment)
+
+For increment = 1 To counter(2)
+selected = increment + 1
+If select_cls = chosen(selected) Then
+chosen(selected) = "x"
+End If
+Next increment
+
+
+
+Select Case select_cls
+
+Case Is = "Strong"
+ba = ba + b_att(1, Class(1))
+will_save = will_save + will(3, Class(1))
+ref_save = ref_save + ref(3, Class(1))
+fort_save = fort_save + fort(2, Class(1))
+hp = hp + (8 + con_mod) * Class(1)
+skill_pts = skill_pts + (2 + int_mod) * Class(1)
+
+Case Is = "Fast"
+ba = ba + b_att(2, Class(2))
+will_save = will_save + will(3, Class(2))
+ref_save = ref_save + ref(2, Class(2))
+fort_save = fort_save + fort(3, Class(2))
+hp = hp + (8 + con_mod) * Class(2)
+skill_pts = skill_pts + (4 + int_mod) * Class(2)
+
+Case Is = "Tough"
+ba = ba + b_att(2, Class(3))
+will_save = will_save + will(3, Class(3))
+ref_save = ref_save + ref(3, Class(3))
+fort_save = fort_save + fort(2, Class(3))
+hp = hp + (10 + con_mod) * Class(3)
+skill_pts = skill_pts + (2 + int_mod) * Class(3)
+
+Case Is = "Smart"
+ba = ba + b_att(3, Class(4))
+will_save = will_save + will(2, Class(4))
+ref_save = ref_save + ref(3, Class(4))
+fort_save = fort_save + fort(3, Class(4))
+hp = hp + (6 + con_mod) * Class(4)
+skill_pts = skill_pts + (8 + int_mod) * Class(4)
+
+Case Is = "Dedicated"
+ba = ba + b_att(2, Class(5))
+will_save = will_save + will(2, Class(5))
+ref_save = ref_save + ref(3, Class(5))
+fort_save = fort_save + fort(2, Class(5))
+hp = hp + (6 + con_mod) * Class(5)
+skill_pts = skill_pts + (4 + int_mod) * Class(5)
+
+Case Is = "Charismatic"
+ba = ba + b_att(3, Class(6))
+will_save = will_save + will(3, Class(6))
+ref_save = ref_save + ref(2, Class(6))
+fort_save = fort_save + fort(2, Class(6))
+hp = hp + (6 + con_mod) * Class(6)
+skill_pts = skill_pts + (6 + int_mod) * Class(6)
+
+Case Is = "Soldier"
+ba = ba + b_att(1, Class(7))
+will_save = will_save + will(3, Class(7))
+ref_save = ref_save + ref(3, Class(7))
+fort_save = fort_save + fort(1, Class(7))
+hp = hp + (10 + con_mod) * Class(7)
+skill_pts = skill_pts + (2 + int_mod) * Class(7)
+
+Case Is = "Martial Artist"
+ba = ba + b_att(1, Class(8))
+will_save = will_save + will(3, Class(8))
+ref_save = ref_save + ref(1, Class(8))
+fort_save = fort_save + fort(1, Class(8))
+hp = hp + (8 + con_mod) * Class(8)
+skill_pts = skill_pts + (6 + int_mod) * Class(8)
+
+Case Is = "Gunslinger"
+ba = ba + b_att(2, Class(9))
+will_save = will_save + will(3, Class(9))
+ref_save = ref_save + ref(1, Class(9))
+fort_save = fort_save + fort(3, Class(9))
+hp = hp + (6 + con_mod) * Class(9)
+skill_pts = skill_pts + (8 + int_mod) * Class(9)
+
+Case Is = "Infiltrator"
+ba = ba + b_att(3, Class(10))
+will_save = will_save + will(1, Class(10))
+ref_save = ref_save + ref(3, Class(10))
+fort_save = fort_save + fort(3, Class(10))
+hp = hp + (4 + con_mod) * Class(10)
+skill_pts = skill_pts + (2 + int_mod) * Class(10)
+
+Case Is = "Daredevil"
+ba = ba + b_att(3, Class(11))
+will_save = will_save + will(1, Class(11))
+ref_save = ref_save + ref(3, Class(11))
+fort_save = fort_save + fort(3, Class(11))
+hp = hp + (4 + con_mod) * Class(11)
+skill_pts = skill_pts + (2 + int_mod) * Class(11)
+
+Case Is = "Bodyguard"
+ba = ba + b_att(1, Class(12))
+will_save = will_save + will(2, Class(12))
+ref_save = ref_save + ref(1, Class(12))
+fort_save = fort_save + fort(1, Class(12))
+hp = hp + (8 + con_mod) * Class(12)
+skill_pts = skill_pts + (4 + int_mod) * Class(12)
+
+Case Is = "Field Scientist"
+ba = ba + b_att(3, Class(13))
+will_save = will_save + will(1, Class(13))
+ref_save = ref_save + ref(1, Class(13))
+fort_save = fort_save + fort(3, Class(13))
+hp = hp + 4 * Class(13)
+skill_pts = skill_pts + (4 + int_mod) * Class(13)
+
+Case Is = "Techie"
+ba = ba + b_att(3, Class(14))
+will_save = will_save + will(1, Class(14))
+ref_save = ref_save + ref(3, Class(14))
+fort_save = fort_save + fort(3, Class(14))
+hp = hp + (4 + con_mod) * Class(14)
+skill_pts = skill_pts + (2 + int_mod) * Class(14)
+
+Case Is = "Field Medic"
+ba = ba + b_att(2, Class(15))
+will_save = will_save + will(3, Class(15))
+ref_save = ref_save + ref(1, Class(15))
+fort_save = fort_save + fort(3, Class(15))
+hp = hp + (6 + con_mod) * Class(15)
+skill_pts = skill_pts + (4 + int_mod) * Class(15)
+
+Case Is = "Investigator"
+ba = ba + b_att(2, Class(16))
+will_save = will_save + will(3, Class(16))
+ref_save = ref_save + ref(3, Class(16))
+fort_save = fort_save + fort(1, Class(16))
+hp = hp + (10 + con_mod) * Class(16)
+skill_pts = skill_pts + (2 + int_mod) * Class(16)
+
+Case Is = "Personality"
+ba = ba + b_att(2, Class(17))
+will_save = will_save + will(1, Class(17))
+ref_save = ref_save + ref(3, Class(17))
+fort_save = fort_save + fort(1, Class(17))
+hp = hp + (12 + con_mod) * Class(17)
+skill_pts = skill_pts + (2 + int_mod) * Class(17)
+
+Case Is = "Negotiator"
+ba = ba + b_att(1, Class(18))
+will_save = will_save + will(3, Class(18))
+ref_save = ref_save + ref(1, Class(18))
+fort_save = fort_save + fort(3, Class(18))
+hp = hp + (10 + con_mod) * Class(18)
+skill_pts = skill_pts + 4 * Class(18)
+
+End Select
+
+counter(3) = counter(3) + 1
+
+Loop Until select_cls = ""
+
+txtmods = "BA   " & ba & vbCrLf & "WILL " & will_save & vbCrLf & "FORT " & fort_save & vbCrLf & " REF  " & ref_save
+
+End Sub
+
